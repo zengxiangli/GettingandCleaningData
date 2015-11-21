@@ -58,5 +58,7 @@ dt$activity.name <- factor(dt$activity.name, levels = dtActNames$id, labels = dt
 
 tidy <- aggregate(dt[,3:ncol(dt)], by = list(dt$subject.id, dt$activity.name), FUN = mean)
 
+colnames(tidy)[1:2] <- c("subject.id", "activity.name")
+
 write.table(tidy, file="tidy_data.txt", row.names = FALSE)
 
